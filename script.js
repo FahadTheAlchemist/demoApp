@@ -6,11 +6,17 @@ function submitForm() {
         alert("Please enter your name.");
         return;
     }
-    if (passwordInput.value.length !== 12) {
-        alert("Password must be exactly 12 characters.");
+    if(passwordInput.value.length === 8){
+        if ((userName === "Yusuf" && passwordInput.value === "1947yusuf")||(userName === "Jacob" && passwordInput.value === "47@Jacob")) {
+            window.location.href = "welcome.html?name=" + encodeURIComponent(userName);
+        } else {
+            alert("Access denied. Invalid User");
+        }
+    }
+
+    else {
+        alert("Password must be exactly 8 characters.");
         return;
     }
-            
-    // Redirect to welcome page with the user's name in the URL
-    window.location.href = "welcome.html?name=" + encodeURIComponent(userName);
+
 }
